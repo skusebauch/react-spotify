@@ -10,17 +10,20 @@ import * as actionTypes from "./store/reducer/actionTypes";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [token, setToken] = useState(null);
   //grab something from the datalayer
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, token }, dispatch] = useStateValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
     //console.log("I have a token >>>", hash);
     window.location.hash = "";
     const _token = hash.access_token;
+    // push user to datalayer
     if (_token) {
-      setToken(_token);
+      dispatch({
+        type: actionTypes.SET_TOKEN,
+        token: _token,
+      });
       // give our token to spotify api to connect app - spotify
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
@@ -30,8 +33,8 @@ function App() {
         });
       });
     }
-    console.log(user);
-  }, [user, dispatch]);
+  }, [user, dispatch, token]);
+  console.log(user);
 
   return <div className="App">{token ? <Player /> : <Login />}</div>;
 }
