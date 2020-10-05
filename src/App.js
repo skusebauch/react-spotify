@@ -31,7 +31,7 @@ function App() {
       });
     }
     console.log(user);
-  }, [user]);
+  }, [user, dispatch]);
 
   return <div className="App">{token ? <Player /> : <Login />}</div>;
 }
