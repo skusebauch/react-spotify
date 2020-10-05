@@ -2,12 +2,14 @@ import React from "react";
 import "./Sidebar.css";
 import Logo from "../assets/Logo/logo.png";
 import SidebarOption from "./SidebarOption";
+import { useStateValue } from "../store/StateProvider";
 
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import LibraryMusicOutlinedIcon from "@material-ui/icons/LibraryMusicOutlined";
 
 function Sidebar() {
+  const [{ playlists }, dispatch] = useStateValue();
   return (
     <div className="sidebar">
       <img src={Logo} alt="Logo" className="sidebar__logo" />
@@ -17,9 +19,9 @@ function Sidebar() {
       <br />
       <strong className="sidebar__title">PLAYLIST</strong>
       <hr />
-      <SidebarOption title="Rock" />
-      <SidebarOption title="Hip Hop" />
-      <SidebarOption title="Country" />
+      {playlists?.items?.map((playlist) => (
+        <SidebarOption title={playlist.name} />
+      ))}
     </div>
   );
 }

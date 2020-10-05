@@ -11,7 +11,7 @@ const spotify = new SpotifyWebApi();
 
 function App() {
   //grab something from the datalayer
-  const [{ user, token }, dispatch] = useStateValue();
+  const [{ user, token, playlists }, dispatch] = useStateValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -32,8 +32,14 @@ function App() {
           user: user,
         });
       });
+      spotify.getUserPlaylists().then((playlist) => {
+        dispatch({
+          type: actionTypes.SET_PLAYLISTS,
+          playlists: playlist,
+        });
+      });
     }
-  }, [user, dispatch, token]);
+  }, [user, dispatch, token, playlists]);
   console.log(user);
 
   return (
