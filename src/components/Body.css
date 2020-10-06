@@ -33,3 +33,26 @@ body::-webkit-scrollbar {
   margin: 0 2rem;
   box-shadow: 0 0.4rem 6rem rgba(0, 0, 0, 0.5);
 }
+
+.body__icons {
+  display: flex;
+  align-items: center;
+}
+
+.body__icons > .MuiSvgIcon-root {
+  margin-right: 2rem;
+}
+
+.body__shuffle {
+  font-size: 6rem !important;
+  margin: 2rem 0 2rem 5rem;
+}
+
+.body__shuffle:hover {
+  transform: scale(1.1);
+  transition: 0.2s transform ease-in;
+}
+
+.body__songs {
+  margin: 2rem -3rem;
+}
