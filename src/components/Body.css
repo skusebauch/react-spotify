@@ -9,3 +9,27 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+.body__info {
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+.body__infoText {
+  flex: 1;
+}
+
+.body__infoText > h2 {
+  font-size: 4.8rem;
+  margin-bottom: 1rem;
+}
+
+.body__infoText > p {
+  font-size: 1.4rem;
+}
+.body__info > img {
+  height: 15vw;
+  margin: 0 2rem;
+  box-shadow: 0 0.4rem 6rem rgba(0, 0, 0, 0.5);
+}
