@@ -2,6 +2,7 @@ import React from "react";
 import { useStateValue } from "../store/StateProvider";
 import "./Body.css";
 import Header from "./Header";
+import SongRow from "./SongRow";
 
 import {
   FavoriteOutlined,
