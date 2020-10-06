@@ -1,5 +1,5 @@
 .sidebar {
-  min-height: 100vh;
+  height: 100vh;
   flex: 0.2;
   min-width: 23rem;
   color: white;
